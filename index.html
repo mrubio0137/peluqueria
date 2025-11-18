@@ -152,6 +152,10 @@
       font-size: 18px;
       cursor: pointer;
     }
+
+    .booking button:hover {
+      background: #444;
+    }
   </style>
 </head>
 <body>
@@ -198,12 +202,17 @@
       <option>18:00</option>
     </select>
     <button onclick="sendWhatsApp()">Enviar solicitud</button>
+    <p style="font-size:14px; margin-top:8px; color:#555;">
+      Se abrirá WhatsApp con tu mensaje prellenado. Solo toca “Enviar” para confirmar tu reserva.
+    </p>
   </div>
 
   <h2 class="section-title" id="contacto">Contacto</h2>
   <div class="contact">
-    <p>Reserva o consulta por WhatsApp:</p>
-    <button onclick="window.open('https://wa.me/656758581','_blank')">Contactar por WhatsApp</button>
+    <p>Reserva o consulta directamente por WhatsApp:</p>
+    <button onclick="window.open('https://wa.me/34656758581?text=Hola,%20quiero%20hacer%20una%20consulta','_blank')">
+      Contactar por WhatsApp
+    </button>
   </div>
 </div>
 
@@ -225,7 +234,7 @@ function sendWhatsApp() {
   }
 
   const message = `Hola, soy ${name} (%2B${phone}) y quiero reservar para el ${date} a las ${time}.`;
-  const whatsappNumber = '656758581'; // reemplaza con el número del peluquero
+  const whatsappNumber = '34656758581'; // Número del peluquero
   const url = `https://wa.me/${whatsappNumber}?text=${message}`;
   
   window.open(url, '_blank');
