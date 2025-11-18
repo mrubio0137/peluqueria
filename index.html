@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedro Peluquero - Barbería Masculina</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:20px;
+      padding:20px;
+      background:#0a3c7e;
+      color:white;
+      flex-wrap:wrap;
+    }
+
+    header img {
+      height:80px;
+      border-radius:6px;
+    }
+
+    header div {
+      text-align:left;
+      max-width:300px;
+    }
+
+    header h1 {
+      margin:0;
+      font-size:32px;
+    }
+
+    header p {
+      margin:4px 0;
+      opacity:0.9;
+    }
+
+    nav {
+      background: #222;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 80px 20px;
+      background: url('https://images.unsplash.com/photo-1597039003814-13a2b8b168f1?auto=format&fit=crop&w=1200&q=60') center/cover;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      margin: 0;
+      text-shadow: 2px 2px 8px black;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .contact {
+      text-align: center;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 10px;
+      margin-top: 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact button {
+      background: #111;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .contact button:hover {
+      background: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: white;
+      margin-top: 40px;
+    }
+
+    /* Sistema de reservas vía WhatsApp */
+    .booking {
+      margin-top: 40px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .booking input, .booking select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .booking button {
+      width: 100%;
+      padding: 12px;
+      background: #111;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Logo Pedro Peluquero">
+  <div>
+    <h1>Pedro Peluquero</h1>
+    <p>Barbería Masculina Profesional</p>
+    <p>Pl. Constitución, 5D, Villarrobledo</p>
+  </div>
+</header>
+
+<nav>
+  <a href="#galeria">Galería</a>
+  <a href="#reserva">Reservar</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<section class="hero">
+  <h2>Tu estilo, en manos profesionales</h2>
+</section>
+
+<div class="container">
+  <h2 class="section-title" id="galeria">Algunos de mis trabajos</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=500&q=60" alt="Corte de cabello moderno">
+    <img src="https://images.unsplash.com/photo-1603491654361-11c92776df57?auto=format&fit=crop&w=500&q=60" alt="Corte de cabello clásico">
+    <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=500&q=60" alt="Barba arreglada">
+  </div>
+
+  <h2 class="section-title" id="reserva">Reservar Cita</h2>
+  <div class="booking">
+    <input type="text" id="name" placeholder="Tu nombre" required>
+    <input type="tel" id="phone" placeholder="Teléfono" required>
+    <label>Selecciona día:</label>
+    <input type="date" id="date" required>
+    <label>Selecciona hora:</label>
+    <select id="time" required>
+      <option>10:00</option>
+      <option>11:00</option>
+      <option>12:00</option>
+      <option>17:00</option>
+      <option>18:00</option>
+    </select>
+    <button onclick="sendWhatsApp()">Enviar solicitud</button>
+  </div>
+
+  <h2 class="section-title" id="contacto">Contacto</h2>
+  <div class="contact">
+    <p>Reserva o consulta por WhatsApp:</p>
+    <button onclick="window.open('https://wa.me/34600000000','_blank')">Contactar por WhatsApp</button>
+  </div>
+</div>
+
+<footer>
+  © 2025 Pedro Peluquero - Barbería Masculina<br>
+  Pl. Constitución, 5D, Villarrobledo
+</footer>
+
+<script>
+function sendWhatsApp() {
+  const name = encodeURIComponent(document.getElementById('name').value);
+  const phone = encodeURIComponent(document.getElementById('phone').value);
+  const date = encodeURIComponent(document.getElementById('date').value);
+  const time = encodeURIComponent(document.getElementById('time').value);
+  
+  if (!name || !phone || !date || !time) {
+    alert("Por favor completa todos los campos.");
+    return;
+  }
+
+  const message = `Hola, soy ${name} (%2B${phone}) y quiero reservar para el ${date} a las ${time}.`;
+  const whatsappNumber = '34600000000'; // reemplaza con el número del peluquero
+  const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+  
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
